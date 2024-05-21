@@ -167,7 +167,7 @@ td, th {
 	flex-direction: row;
 }
 
-@media screen and (min-width: 400px) and (max-width: 1200px) {
+@media screen and (min-width: 321px) and (max-width: 800px) {
 	.about_me_flex {
 		flex-direction: row;
 		--amplify-components-flex-flex-wrap: wrap;
