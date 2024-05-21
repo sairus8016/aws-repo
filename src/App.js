@@ -83,7 +83,7 @@ function App({ signOut }) {
 			</Tabs.List>
 			<Tabs.Panel value="1">
 				<Card>
-					<Flex class="amplify-flex about_me_flex">
+					<Flex className="amplify-flex about_me_flex">
 						<div class="ss_small_centered">
 							<Image src="/Ben_Bates_Profile_Pic.jpg"></Image>
 						</div>
@@ -112,7 +112,7 @@ function App({ signOut }) {
 								<a href={ResumePDF} target = "_blank" rel="noreferrer" download="Ben_Bates_Resume.pdf">
 									<Button>Click here to see my resume</Button>
 								</a>
-								<Button role="link" onClick={() => openInNewTab("https://www.linkedin.com/in/benjamin-bates-399b052ba")}>Click here to visit my Linkedin</Button>
+								<Button role="link" onClick={() => openInNewTab("https://www.linkedin.com/in/bwbates")}>Click here to visit my Linkedin</Button>
 							</div>
 						</div>
 					</Flex>	
@@ -130,7 +130,7 @@ function App({ signOut }) {
 							 <th class="sticky-col first-col">Citrus</th>
 							 <th class="sticky-col second-col">Stone Fruit</th>
 							 <th class="sticky-col third-col">Berry</th>
-							 <TableCell as="th" class="">Stone Fruit</TableCell>
+							 <TableCell as="th">Stone Fruit</TableCell>
 							 <TableCell as="th">Berry</TableCell>
 							 <TableCell as="th">Stone Fruit</TableCell>
 							 <TableCell as="th">Berry</TableCell>
@@ -159,7 +159,7 @@ function App({ signOut }) {
 							 <TableCell class="sticky-col first-col">Orange</TableCell>
 							 <TableCell class="sticky-col second-col">Nectarine</TableCell>
 							 <TableCell class="sticky-col third-col">Raspberry</TableCell>
-							 <TableCell class="">Nectarine</TableCell>
+							 <TableCell>Nectarine</TableCell>
 							 <TableCell>Raspberry</TableCell>
 							 <TableCell>Nectarine</TableCell>
 							 <TableCell>Raspberry</TableCell>
@@ -186,7 +186,7 @@ function App({ signOut }) {
 							 <TableCell class="sticky-col first-col">Grapefruit</TableCell>
 							 <TableCell class="sticky-col second-col">Apricot</TableCell>
 							 <TableCell class="sticky-col third-col">Blueberry</TableCell>
-							 <TableCell class="">Apricot</TableCell>
+							 <TableCell>Apricot</TableCell>
 							 <TableCell>Blueberry</TableCell>
 							 <TableCell>Apricot</TableCell>
 							 <TableCell>Blueberry</TableCell>
@@ -213,7 +213,7 @@ function App({ signOut }) {
 							 <TableCell class="sticky-col first-col">Lime</TableCell>
 							 <TableCell class="sticky-col second-col">Peach</TableCell>
 							 <TableCell class="sticky-col third-col">Strawberry</TableCell>
-							 <TableCell class="">Peach</TableCell>
+							 <TableCell>Peach</TableCell>
 							 <TableCell>Strawberry</TableCell>
 							 <TableCell>Peach</TableCell>
 							 <TableCell>Strawberry</TableCell>
@@ -240,7 +240,7 @@ function App({ signOut }) {
 						</Table>
 					</div>
 				</Card>
-				<Card id='dice_roller_section'>
+				<div id='dice_roller_section' class='hidden'>
 					<div class="inline-block">
 						<Label htmlFor="roll_equation">Dice Roll:</Label>
 						<Input id="roll_equation" name="equation" value={values.equation} onChange={handleInputChange}/>
@@ -253,7 +253,7 @@ function App({ signOut }) {
 						<TextAreaField isReadOnly={true} label="Results" name="results" rows={2} name="output" value={values.output}/>
 					</div>
 					
-				</Card>
+				</div>
 			</Tabs.Panel>
 		</Tabs.Container>
 	</Flex>
