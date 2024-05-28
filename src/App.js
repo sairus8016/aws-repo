@@ -1,12 +1,11 @@
 import './App.css';
 import { Button, Text, Input, Label, SelectField, Flex, Heading, Table, TableCell, TableBody, TableHead, TableRow, Card, Tabs, Divider, Image, Link, TextAreaField } from "@aws-amplify/ui-react";
-import { useCallback, useEffect, useState } from 'react';
-import { generateClient } from 'aws-amplify/api';
+import { useCallback, useEffect, useState, React, useRef } from 'react';
 import { downloadData } from 'aws-amplify/storage';
 import ResumePDF from "./Ben_Bates_Resume.pdf";
 import styled from 'styled-components';
-
-const client = generateClient();
+import Grid from './Grid.js';
+import Tile from './Tile.js';
 
 const initialDiceValues = {
 	equation: "",
@@ -25,13 +24,6 @@ function App({ signOut }) {
 		[name]: value,
 	});
   };
-  
-  const MyColumnHeader = () => {
-	const clickHandler = () => {
-		return <th class="sticky-col first-col" onClick={clickHandler}>Citrus</th>;
-	}
-	return <th class="sticky-col first-col" onClick={clickHandler}>Citrus</th>;
-  }
   
   const openInNewTab = (url) => {
 	window.open(url, "_blank", "noreferrer");
@@ -66,6 +58,147 @@ function App({ signOut }) {
   const randomNumberInRange = (min, max) => {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
   };
+  
+  
+  useEffect(() => {
+	console.log('i fire once');
+	const gameBoard = document.getElementById("game-board");
+	
+	const grid = new Grid(gameBoard);
+	grid.randomEmptyCell().tile = new Tile(gameBoard);
+	grid.randomEmptyCell().tile = new Tile(gameBoard);
+	setupInput();
+	
+	function setupInput() {
+		window.addEventListener("keydown", handleInput, { once: true });
+	}
+	  
+	async function handleInput(e) {
+		switch (e.key) {
+			case "ArrowUp":
+				if (!canMoveUp()) {
+					setupInput();
+					return;
+				}
+				await moveUp();
+				break;
+			case "ArrowDown":
+				if (!canMoveDown()) {
+					setupInput();
+					return;
+				}
+				await moveDown();
+				break;
+			case "ArrowLeft":
+				if (!canMoveLeft()) {
+					setupInput();
+					return;
+				}
+				await moveLeft();
+				break;
+			case "ArrowRight":
+				if (!canMoveRight()) {
+					setupInput();
+					return;
+				}
+				await moveRight();
+				break;
+			default:
+				setupInput();
+				return;
+		}
+		
+		grid.cells.forEach(cell => cell.mergeTiles());
+		
+		{/*const newTile = new Tile(gameBoard);
+		grid.randomEmptyCell().tile = newTile;
+		
+		if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
+			newTile.waitForTransition(true).then(() => {
+				alert("You lose");
+			})
+			return;
+		}*/}
+		
+		setupInput();
+	}
+	
+	function moveUp() {
+		console.log('up');
+		return slideTiles(grid.cellsByColumn);
+	}
+	
+	function moveDown() {
+		console.log('down');
+		return slideTiles(grid.cellsByColumn.map(column => [...column].reverse()));
+	}
+	
+	function moveLeft() {
+		console.log('left');
+		return slideTiles(grid.cellsByRow);
+	}
+	
+	function moveRight() {
+		console.log('right');
+		return slideTiles(grid.cellsByRow.map(row => [...row].reverse()));
+	}
+	
+	function slideTiles(cells) {
+		return Promise.all(
+			cells.flatMap(group => {
+				const promises = [];
+				for (let i = 1; i < group.length; i++) {
+					const cell = group[i];
+					if (cell.title == null) continue;
+					let lastValidCell;
+					for (let j = i - 1; j >= 0; j--) {
+						const moveToCell = group[j];
+						if (!moveToCell.canAccept(cell.tile)) break;
+						lastValidCell = moveToCell;
+					}
+					
+					if (lastValidCell != null) {
+						promises.push(cell.tile.waitForTransition())
+						if (lastValidCell.tile != null) {
+							lastValidCell.mergeTile = cell.tile;
+						} else {
+							lastValidCell.tile = cell.tile;
+						}
+						cell.tile = null;
+					}
+				}
+				return promises;
+			})
+		)
+	}
+	
+	function canMoveUp() {
+		return canMove(grid.cellsByColumn);
+	}
+	
+	function canMoveDown() {
+		return canMove(grid.cellsByColumn.map(column => [...column].reverse()));
+	}
+	
+	function canMoveLeft() {
+		return canMove(grid.cellsByRow);
+	}
+	
+	function canMoveRight() {
+		return canMove(grid.cellsByRow.map(row => [...row].reverse()));
+	}
+	
+	function canMove(cells) {
+		return cells.some(group => {
+			return group.some((cell, index) => {
+				if (index === 0) return false;
+				if (cell.tile == null) return false;
+				const moveToCell = group[index - 1];
+				return moveToCell.canAccept(cell.tile);
+			})
+		})
+	}
+  }, []);
 
   return (
 	<Flex direction="column" gap="7px">
@@ -73,7 +206,7 @@ function App({ signOut }) {
 			<Heading level={1} fontWeight="bold">Benjamin Bates</Heading>
 		</div>
 		<div class="centered info_header">
-			<Heading level={5} fontWeight="bold">benjaminbates92@gmail.com</Heading> | <Heading level={5} fontWeight="bold">(860)759-8778</Heading> | <Heading level={5} fontWeight="bold">East Hampton, CT 06424</Heading>
+			<Heading level={5} fontWeight="bold">benjaminbates92@gmail.com</Heading><Heading level={5} fontWeight="bold">(860)759-8778</Heading>
 		</div>
 		<Divider orientation="horizontal"></Divider>
 		<Tabs.Container defaultValue="1">
@@ -119,7 +252,7 @@ function App({ signOut }) {
 				</Card>
 			</Tabs.Panel>
 			<Tabs.Panel value="2">
-				<Card>
+				<div class="hidden">
 					<div class="wrapper">
 						<Table
 						  caption=""
@@ -239,7 +372,7 @@ function App({ signOut }) {
 						  </TableBody>
 						</Table>
 					</div>
-				</Card>
+				</div>
 				<div id='dice_roller_section' class='hidden'>
 					<div class="inline-block">
 						<Label htmlFor="roll_equation">Dice Roll:</Label>
@@ -253,6 +386,9 @@ function App({ signOut }) {
 						<TextAreaField isReadOnly={true} label="Results" name="results" rows={2} name="output" value={values.output}/>
 					</div>
 					
+				</div>
+				<div id="game-section">
+					<div id="game-board"></div>
 				</div>
 			</Tabs.Panel>
 		</Tabs.Container>
