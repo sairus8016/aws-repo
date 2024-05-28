@@ -61,7 +61,6 @@ function App({ signOut }) {
   
   
   useEffect(() => {
-	console.log('i fire once');
 	const gameBoard = document.getElementById("game-board");
 	
 	const grid = new Grid(gameBoard);
@@ -110,7 +109,7 @@ function App({ signOut }) {
 		
 		grid.cells.forEach(cell => cell.mergeTiles());
 		
-		{/*const newTile = new Tile(gameBoard);
+		const newTile = new Tile(gameBoard);
 		grid.randomEmptyCell().tile = newTile;
 		
 		if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
@@ -118,28 +117,24 @@ function App({ signOut }) {
 				alert("You lose");
 			})
 			return;
-		}*/}
+		}
 		
 		setupInput();
 	}
 	
 	function moveUp() {
-		console.log('up');
 		return slideTiles(grid.cellsByColumn);
 	}
 	
 	function moveDown() {
-		console.log('down');
 		return slideTiles(grid.cellsByColumn.map(column => [...column].reverse()));
 	}
 	
 	function moveLeft() {
-		console.log('left');
 		return slideTiles(grid.cellsByRow);
 	}
 	
 	function moveRight() {
-		console.log('right');
 		return slideTiles(grid.cellsByRow.map(row => [...row].reverse()));
 	}
 	
@@ -149,7 +144,7 @@ function App({ signOut }) {
 				const promises = [];
 				for (let i = 1; i < group.length; i++) {
 					const cell = group[i];
-					if (cell.title == null) continue;
+					if (cell.tile == null) continue;
 					let lastValidCell;
 					for (let j = i - 1; j >= 0; j--) {
 						const moveToCell = group[j];
