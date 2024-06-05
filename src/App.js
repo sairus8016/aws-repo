@@ -74,7 +74,6 @@ function App({ signOut }) {
 		window.addEventListener("keydown", handleInput, { once: true });
 		window.addEventListener('touchstart', handleTouchStart, { once: true });
 		window.addEventListener('touchmove', handleTouchMove, { once: true });
-		console.log('input setup');
 	}
 	
 	function getTouches(evt) {
@@ -90,6 +89,7 @@ function App({ signOut }) {
 															   
 	async function handleTouchMove(evt) {
 		if ( ! xDown || ! yDown ) {
+			setupInput();
 			return;
 		}
 
