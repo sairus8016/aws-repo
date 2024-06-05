@@ -129,7 +129,21 @@ function App({ signOut }) {
 		}
 		/* reset values */
 		xDown = null;
-		yDown = null;                                             
+		yDown = null;  
+
+		grid.cells.forEach(cell => cell.mergeTiles());
+		
+		const newTile = new Tile(gameBoard);
+		grid.randomEmptyCell().tile = newTile;
+		
+		if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
+			newTile.waitForTransition(true).then(() => {
+				alert("You lose");
+			})
+			return;
+		}
+		
+		setupInput();
 	};
 	  
 	async function handleInput(e) {
@@ -258,7 +272,7 @@ function App({ signOut }) {
   return (
 	<Flex direction="column" gap="7px">
 		<div class="centered name_header">
-			<Heading level={1} fontWeight="bold">Benjamin Bates</Heading>
+			<Heading level={3} fontWeight="bold">Benjamin Bates</Heading>
 		</div>
 		<div class="centered info_header">
 			<Heading level={5} fontWeight="bold">benjaminbates92@gmail.com</Heading><Heading level={5} fontWeight="bold">(860)759-8778</Heading>
@@ -277,18 +291,17 @@ function App({ signOut }) {
 						</div>
 						<div class="about_me_text_section">
 							<Text as="p">
-								Welcome to my website! I'm a web developer with 9 years of professional full stack experience. 
-								During my time at Pharmaceutical Data Services I developed web applications for pharmaceutical and insurance companies.
-								I developed applications through their full lifecycle, from concept and design, development, testing, implementation, and client updates.
-								I've worked on both front end development and back end development using languages such as JavaScript, PHP, HTML, CSS, SQL, Python, and C#.
+								Welcome to my website! I'm a Fullstack Developer with a Bachelor's Degree in Computer Science and 9 years of professional fullstack experience. 
+								During my time at my previous position I worked with a team to develop web applications for pharmaceutical and insurance companies,
+								taking applications through their full lifecycle; through concept and design, development, testing, implementation, and client updates.
+								I've worked on both front end development and back end development using languages including JavaScript, PHP, HTML, CSS, SQL, Python, and C#.
 								The projects I worked on have required me to translate client needs to an end product that satisfies the client user experience.
 							</Text>
 							<br></br>
 							<Text as="p">
-								I've overcome every challenge in my career thanks to my ability to adapt and learn new technologies.
-								I always jump at the chance to take on something new that will expand my skills and bring the best end result.
-								I'm a problem solver who likes to create creative solutions, and I function well in a team or alone.
-								I worked remotely at my previous job for 7 years, so I'm used to the experience of communicating with my coworkers and working independently in a remote setting.
+								In my past professional experience I have always jumped at the chance to take on something new that will expand my skills and bring the best end result.
+								I applied my ability to adapt, learn new technologies and problem solve to develop creative solutions.
+								I worked remotely at my previous job for 7 years, after 2 years in office, so I'm used to the experience of communicating with my coworkers and working collaboratively and independently in a remote setting.
 								I'm looking for a job where I can use my experience to excel and also learn new things to expand my capabilities even further.
 								I'm excited at the chance to show my skills and take on the next chapter of my career.
 							</Text>
