@@ -94,6 +94,10 @@
   }
 }
 
+body { 
+	min-height: 85vh;
+}
+
 .hidden {
 	display: none;
 }
