@@ -123,14 +123,20 @@ body {
 	width: 1500px;
 }
 
+.about_me_text_section {
+	text-align: center;
+}
+
 @media screen and (min-width: 1000px){
+	.ss_small_centered {
+		padding-left: 10vh;
+	}
 	.amplify-image {
-		padding-left: 90px;
 		padding-top: 40px;
 	}
 	.about_me_text_section {
 		padding-left: 50px;
-		padding-right: 90px;
+		padding-right: 10vh;
 		padding-top: 145px;
 	}
 
