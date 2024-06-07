@@ -48,6 +48,10 @@
 	transition: 100ms ease-in-out;
 }
 
+.game_rules {
+	text-align: center;
+}
+
 @keyframes show {
 	0% {
 		opacity: .5;
