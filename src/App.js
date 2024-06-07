@@ -292,7 +292,7 @@ function App({ signOut }) {
 						</div>
 						<div class="about_me_text_section">
 							<Text as="p">
-								Welcome to my website! I'm a Fullstack Developer with a Bachelor's Degree in Computer Science and 9 years of professional fullstack experience. 
+								Welcome to my website! I'm a Software Engineer with a Bachelor's Degree in Computer Science and 9 years of professional fullstack experience. 
 								During my time at my previous position I worked with a team to develop web applications for pharmaceutical and insurance companies,
 								taking applications through their full lifecycle; through concept and design, development, testing, implementation, and client updates.
 								I've worked on both front end development and back end development using languages including JavaScript, PHP, HTML, CSS, SQL, Python, and C#.
@@ -458,6 +458,11 @@ function App({ signOut }) {
 				</div>
 				<div id="game-section">
 					<div id="game-board"></div>
+				</div>
+				<div class="game_rules">
+					<Text as="p">
+						Use the Arrow Keys or swipe to move the tiles. Match like numbers until you can't make any moves.
+					</Text>
 				</div>
 			</Tabs.Panel>
 		</Tabs.Container>
