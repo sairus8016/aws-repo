@@ -2,7 +2,7 @@ import './App.css';
 import { Button, Text, Input, Label, SelectField, Flex, Heading, Table, TableCell, TableBody, TableHead, TableRow, Card, Tabs, Divider, Image, Link, TextAreaField } from "@aws-amplify/ui-react";
 import { useCallback, useEffect, useState, React, useRef } from 'react';
 import { downloadData } from 'aws-amplify/storage';
-import ResumePDF from "./BBates_Resume.pdf";
+import ResumePDF from "./Ben_Bates_Resume.pdf";
 import styled from 'styled-components';
 import Grid from './Grid.js';
 import Tile from './Tile.js';
@@ -292,29 +292,26 @@ function App({ signOut }) {
 						</div>
 						<div class="about_me_text_section">
 							<Text as="p">
-								I'm a passionate Software Engineer with a Bachelor's Degree in Computer Science and 9 years of full-stack development experience, 
-								now eager to transition into Video Game Development. Throughout my career, I've worked on diverse projects, from developing web applications 
-								for pharmaceutical and insurance companies to building interactive user experiences. My skills span both front-end and back-end development, 
-								utilizing languages like JavaScript, PHP, HTML, CSS, SQL, Python, and C#.
+								Welcome to my website! I'm a Software Engineer with a Bachelor's Degree in Computer Science and 9 years of professional fullstack experience. 
+								During my time at my previous position I worked with a team to develop web applications for pharmaceutical and insurance companies,
+								taking applications through their full lifecycle; through concept and design, development, testing, implementation, and client updates.
+								I've worked on both front end development and back end development using languages including JavaScript, PHP, HTML, CSS, SQL, Python, and C#.
+								The projects I worked on have required me to translate client needs to an end product that satisfies the client user experience. 
 							</Text>
 							<br></br>
 							<Text as="p">
-								My experience has honed my ability to translate complex requirements into engaging, user-friendly products. I've always embraced opportunities 
-								to learn and innovate, applying my adaptability and problem-solving skills to create creative solutions. This drive is mirrored in my passion for video games, 
-								where I constantly analyze gameplay mechanics and user experiences, seeking inspiration for my own projects.
-							</Text>
-							<br></br>
-							<Text as="p">
-								During my 7 years of remote work, I've mastered effective communication and collaboration, balancing teamwork with independent problem-solving. 
-								I'm excited to leverage my technical background and gaming enthusiasm in a role where I can contribute to dynamic game development projects, learn new technologies, 
-								and help bring captivating experiences to life. I’m looking forward to the opportunity to showcase my skills and embark on this exciting new chapter in my career as a Video Game Developer!
+								In my past professional experience I have always jumped at the chance to take on something new that will expand my skills and bring the best end result.
+								I applied my ability to adapt, learn new technologies and problem solve to develop creative solutions.
+								I worked remotely at my previous job for 7 years, after 2 years in office, so I'm used to the experience of communicating with my coworkers and working collaboratively and independently in a remote setting.
+								I'm looking for a job where I can use my experience to excel and also learn new things to expand my capabilities even further.
+								I'm excited at the chance to show my skills and take on the next chapter of my career.
 							</Text>
 							<br></br>
 							<Text as="p">
 								You can find links to view my resume and visit my Linkedin below. 
 							</Text>
 							<div class="buttons_container">
-								<a href={ResumePDF} target = "_blank" rel="noreferrer" download="BBates_Resume.pdf">
+								<a href={ResumePDF} target = "_blank" rel="noreferrer" download="Ben_Bates_Resume.pdf">
 									<Button>Click here to see my resume</Button>
 								</a>
 								<Button role="link" onClick={() => openInNewTab("https://www.linkedin.com/in/bwbates")}>Click here to visit my Linkedin</Button>
