@@ -295,7 +295,7 @@ function App({ signOut }) {
 								Welcome to my website! I'm a passionate Software Engineer with a Bachelor's Degree in Computer Science and 9 years of full-stack development experience, 
 								now eager to transition into Video Game Development. Throughout my career, I've worked on diverse projects, from developing web applications 
 								for pharmaceutical and insurance companies to building interactive user experiences. My skills span both front-end and back-end development, 
-								utilizing languages like JavaScript, PHP, HTML, CSS, SQL, Python, and C#.
+								utilizing languages like JavaScript, PHP, HTML, CSS, SQL, Python, and C#. I also have personal experience developing projects in Unity and GameMaker.
 							</Text>
 							<br></br>
 							<Text as="p">
@@ -305,13 +305,20 @@ function App({ signOut }) {
 							</Text>
 							<br></br>
 							<Text as="p">
-								You can find links to view my resume and visit my Linkedin below. 
+								Having followed the Games Industry since I was a kid, my knowledge of video games and the larger industry is extensive. I have always seeked out as much information
+								and insight into the development of video games as well as their reception and impact. I know what makes a video game good, what a game's audience is looking for, and 
+								how to make a game mechanic fun and engrossing. My critical eye for game design has given me the ability to understand why I enjoy games and what I would enjoy in my own games.
+								I'm excited to bring my insight and experience to a development team that is looking for passion like mine.
+							</Text>
+							<br></br>
+							<Text as="p">
+								You can find links to view my resume and visit my LinkedIn below. 
 							</Text>
 							<div class="buttons_container">
 								<a href={ResumePDF} target = "_blank" rel="noreferrer" download="Ben_Bates_Resume.pdf">
 									<Button>Click here to see my resume</Button>
 								</a>
-								<Button role="link" onClick={() => openInNewTab("https://www.linkedin.com/in/bwbates")}>Click here to visit my Linkedin</Button>
+								<Button role="link" onClick={() => openInNewTab("https://www.linkedin.com/in/bwbates")}>Click here to visit my LinkedIn</Button>
 							</div>
 						</div>
 					</Flex>	
