@@ -292,23 +292,16 @@ function App({ signOut }) {
 						</div>
 						<div class="about_me_text_section">
 							<Text as="p">
-								Welcome to my website! I'm a passionate Software Engineer with a Bachelor's Degree in Computer Science and 9 years of full-stack development experience, 
-								now eager to transition into Video Game Development. Throughout my career, I've worked on diverse projects, from developing web applications 
+								Welcome to my website! I'm a passionate Software Engineer with a Bachelor's Degree in Computer Science and 9 years of full-stack web development experience.
+								Throughout my career, I've worked on diverse projects, from developing web applications 
 								for pharmaceutical and insurance companies to building interactive user experiences. My skills span both front-end and back-end development, 
-								utilizing languages like JavaScript, PHP, HTML, CSS, SQL, Python, and C#. I also have personal experience developing projects in Unity and GameMaker.
+								utilizing languages like JavaScript, PHP, HTML, CSS, SQL, Python, and C#.
 							</Text>
 							<br></br>
 							<Text as="p">
 								My experience has honed my ability to translate complex requirements into engaging, user-friendly products. I've always embraced opportunities 
-								to learn and innovate, applying my adaptability and problem-solving skills to create creative solutions. This drive is mirrored in my passion for video games, 
-								where I constantly analyze gameplay mechanics and user experiences, seeking inspiration for my own projects.
-							</Text>
-							<br></br>
-							<Text as="p">
-								Having followed the Games Industry since I was a kid, my knowledge of video games and the larger industry is extensive. I have always seeked out as much information
-								and insight into the development of video games as well as their reception and impact. I know what makes a video game good, what a game's audience is looking for, and 
-								how to make a game mechanic fun and engrossing. My critical eye for game design has given me the ability to understand why I enjoy games and what I would enjoy in my own games.
-								I'm excited to bring my insight and experience to a development team that is looking for passion like mine.
+								to learn and innovate, applying my adaptability and problem-solving skills to create creative solutions. I'm looking for a job where I can use 
+								my experience to excel and also learn new things to expand my capabilities even further. I'm excited at the chance to show my skills and take on the next chapter of my career.
 							</Text>
 							<br></br>
 							<Text as="p">
